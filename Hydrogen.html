@@ -1,0 +1,531 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solvable Quantum Models &#8212; Density Functional Theory</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Quantum Mechanics" href="QM.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Density Functional Theory</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Density Functional Theory
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="QM.html">
+   Quantum Mechanics
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Solvable Quantum Models
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Hydrogen.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FHydrogen.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bohr-model">
+   Bohr Model
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#infinite-square-well">
+   Infinite Square Well
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#finite-square-well">
+   Finite Square Well
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#quantum-harmonic-oscillator">
+   Quantum Harmonic Oscillator
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#revisiting-the-hydrogen-atom">
+   Revisiting the Hydrogen Atom
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-note-on-units">
+   A note on units
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="solvable-quantum-models">
+<h1>Solvable Quantum Models<a class="headerlink" href="#solvable-quantum-models" title="Permalink to this headline">¶</a></h1>
+<p>Solving the Schrodinger equation for different quantum systems, we essentially add different choices of potential <span class="math notranslate nohighlight">\(V({\bf x},\,t)\)</span>.  In each case
+the Hamilonian operator:</p>
+<div class="math notranslate nohighlight">
+\[\hat{H} = \hat{T} + \hat{V} = -\frac{\hbar^2}{2m}\nabla^2 + V({\bf x},\,t)\]</div>
+<p>will vary depending on the choice of potential.</p>
+<div class="section" id="bohr-model">
+<h2>Bohr Model<a class="headerlink" href="#bohr-model" title="Permalink to this headline">¶</a></h2>
+<p>This one is a bit of a cheat, because solving it does not involve the Schroodinger equation, however it does allow us to address
+some conceptual ideas in quantum theory.  To do this properly, we need to consider the hydrogen atom properly, which we do in a later section.  The
+basic idea of the Bohr model, starting with Hydrogen, is to assume that electrons are in circular motion around the nucleus:</p>
+<div class="math notranslate nohighlight">
+\[F_{centripetal} = \frac{m_e v^2}{r}\]</div>
+<p>which is equal to the Coulombic attraction between the electron <span class="math notranslate nohighlight">\(-e\)</span> and proton <span class="math notranslate nohighlight">\(+e\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[F_{Coulomb} = \frac{e^2}{4\pi \,\epsilon_0\,r^2}\]</div>
+<p>Thus we find the velocity of these bound electrons is found by:</p>
+<div class="math notranslate nohighlight">
+\[\frac{m_ev^2}{r} = \frac{e^2}{4\pi \,\epsilon_0\,r^2} \Rightarrow v^2 = \frac{e^2}{4\pi\,m_e\,\epsilon_0\,r}\]</div>
+<p>The kinetic energy of these electrons is given by:</p>
+<div class="math notranslate nohighlight">
+\[E_K = -\frac{1}{2}m_e\,v^2 = -\frac{e^2}{8\pi\,\epsilon_0\,r}\]</div>
+<p>Where the <span class="math notranslate nohighlight">\(-\)</span> sign is introduced since these electrons are bound and we would need to give <span class="math notranslate nohighlight">\(E = \frac{1}{2}m_e\,v^2\)</span> worth of
+energy for the electron to be free with net zero energy.  Notice that since <span class="math notranslate nohighlight">\(E_K \propto \frac{1}{r}\)</span>, this formally happens as
+<span class="math notranslate nohighlight">\(r \rightarrow \infty\)</span>.  Bohr’s key insight was that the electrons do not orbit the atomic nucleus akin to planets around a star,
+but instead behave as electron matter waves.  Electrons have a de Broglie wavelength:</p>
+<div class="math notranslate nohighlight">
+\[\lambda = \frac{h}{mv}\]</div>
+<p>then the key idea here is that different orbits around the nucleus would correspond to different wavelengths, with <b>only</b> complete
+wavelengths are permitted.  The circumference of each orbit would be:</p>
+<div class="math notranslate nohighlight">
+\[2\pi\,r = n\,\lambda,\quad n \in \mathbb{N}\]</div>
+<p>this means the angular momentum <span class="math notranslate nohighlight">\(L = m\,v\,r\)</span> is given by:</p>
+<div class="math notranslate nohighlight">
+\[m_e\,v\,r = \frac{n\,h}{2\pi} = n\,\hbar\]</div>
+<p>Substituting in the expression for <span class="math notranslate nohighlight">\(v\)</span> allows us to write the allowed radius of orbits:</p>
+<div class="math notranslate nohighlight">
+\[r_n = \frac{4\pi\,\epsilon_0\,\hbar^2}{e^2\,m_e}\,n^2\]</div>
+<p>and hence the energy of the electrons is found to be:</p>
+<div class="math notranslate nohighlight">
+\[E_n = -\frac{e^4\,m_e}{2(4\pi\,\epsilon_0)^2\,\hbar^2}\frac{1}{n^2} \simeq -\frac{13.6}{n^2} \text{eV}\]</div>
+<p>where the coefficients are collected together as the Rydeburg energy <span class="math notranslate nohighlight">\(R_E \simeq 13.6 eV\)</span>.  Recall that electron volts, eV,<br />
+represent the amount of energy given to a particle with charge of <span class="math notranslate nohighlight">\(e = 1.6\times 10^{-19}\)</span> C travelling across a potential
+difference of 1 V.  This expression suggests electrons can move between energy levels, e.g. the energy emitted moving from
+the <span class="math notranslate nohighlight">\(n_1\)</span> to <span class="math notranslate nohighlight">\(n_2\)</span> energy level would be:</p>
+<div class="math notranslate nohighlight">
+\[\Delta E_{n_1\rightarrow n_2} = 13.6\left(\frac{1}{{n_1}^2}-\frac{1}{{n_2}^2}\right)\]</div>
+<p>The typical size of an atom can be represented by the ground state radius, <span class="math notranslate nohighlight">\(r_{n=1}\)</span>, which is denoted by <span class="math notranslate nohighlight">\(a_0\)</span> and known as the Bohr radius:</p>
+<div class="math notranslate nohighlight">
+\[a_0 = \frac{4\pi\,\epsilon_0\,\hbar^2}{e^2\,m_e}\]</div>
+<p>We stress that this result is <b>semi-classical</b>, it has its limitations and does not correctly account for additional quantum
+effects.  One obvious issue is how to generalise this expression to larger atoms, initially the most obvious thing to do is adjust
+the size of the atomic nuclear:</p>
+<div class="math notranslate nohighlight">
+\[F_{Coulomb} = \frac{e^2}{4\pi\,\epsilon_o\,r^2} \rightarrow \frac{Z\,e^2}{4\pi\,\epsilon_o\,r^2}\]</div>
+<p>where <span class="math notranslate nohighlight">\(Z\)</span> is the atomic number of the element in question.  The biggest issue with this approximation is that it leaves out the <span class="math notranslate nohighlight">\(e-e\)</span>
+interactions within each energy level, something which is not typically present in atomic Hydrogen.</p>
+</div>
+<div class="section" id="infinite-square-well">
+<h2>Infinite Square Well<a class="headerlink" href="#infinite-square-well" title="Permalink to this headline">¶</a></h2>
+<p>One of the simplest quantum systems we can investigate is the infinite square well, where the potential energy of the system traps the wave
+function within a well, as shown in <a class="reference internal" href="#infinitesquarewell"><span class="std std-numref">Fig. 1</span></a>.</p>
+<div class="figure align-default" id="infinitesquarewell">
+<img alt="_images/InfiniteSquareWell.png" src="_images/InfiniteSquareWell.png" />
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">The infinite square well system</span><a class="headerlink" href="#infinitesquarewell" title="Permalink to this image">¶</a></p>
+</div>
+<p>To solve the Schrodinger equation for this system:</p>
+<div class="math notranslate nohighlight">
+\[-\frac{\hbar^2}{2m}\frac{\partial^2 \Psi}{\partial x^2} + V\,\Psi = i \hbar \frac{\partial \Psi}{\partial t}\]</div>
+<p>we can start by using a separable ansatz:</p>
+<div class="math notranslate nohighlight">
+\[\Psi(x,\,t) = f(x)\,g(t)\]</div>
+<p>and therefore drop the partial derivatives and set the problem up as two ODE problems with eigenvalues <span class="math notranslate nohighlight">\(E\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}-\frac{\hbar^2}{2m}\frac{\mathrm{d}^2 f}{\mathrm{d} x^2} + V\,f &amp;=&amp;\, E\,f \\
+i \hbar \frac{\mathrm{d} g}{\mathrm{d} t} &amp;=&amp;\, E\,g\end{split}\]</div>
+<p>Inside the well, <span class="math notranslate nohighlight">\(V = 0\)</span> which simplifies the <span class="math notranslate nohighlight">\(x\)</span> ODE further:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\mathrm{d}^2 f}{\mathrm{d} x^2} + \frac{2mE}{\hbar^2}\,f = 0\]</div>
+<p>and therefore has solutions:</p>
+<div class="math notranslate nohighlight">
+\[f(x) = A\,\sin\left(\frac{\sqrt{2mE}}{\hbar}x\right) + B\,\cos\left(\frac{\sqrt{2mE}}{\hbar}x\right)\]</div>
+<p>At the boundaries of the well, <span class="math notranslate nohighlight">\(x = 0,\,L\)</span>, we find an infinite potential <span class="math notranslate nohighlight">\(V\)</span> which is usually problematic for a physical system,
+however if we make <span class="math notranslate nohighlight">\(\Psi(0,t) = \Psi(L,t) = 0\)</span>, then this can be fixed and this gives us the relevant boundary conditions:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}f(0) &amp;=&amp; A(0) + B(1) = 0 \Rightarrow B = 0\\
+f(L) &amp;=&amp; A\,\sin\left(\frac{\sqrt{2mE}}{\hbar}L\right) + B\,\cos\left(\frac{\sqrt{2mE}}{\hbar}L\right) = 0\end{split}\]</div>
+<p>and hence</p>
+<div class="math notranslate nohighlight">
+\[\sin\left(\frac{\sqrt{2mE}}{\hbar}L\right) = 0  \Rightarrow \frac{\sqrt{2mE}}{\hbar}L = n\pi,\,n \in \mathbb{N}\]</div>
+<p>which means that there are energies <span class="math notranslate nohighlight">\(E\)</span> of the form:</p>
+<div class="math notranslate nohighlight">
+\[E_n = \frac{\hbar^2\,\pi^2\,n^2}{2m\,L^2},\,n \in \mathbb{N}\]</div>
+<p>and the expressions for the different wave function solutions are given by:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\sqrt{2mE}}{\hbar} = \frac{n\pi}{L} \Longrightarrow f(x) = A\,\sin\left(\frac{n\,\pi\,x}{L}\right),\,n \in \mathbb{N}\]</div>
+<p>and we can plot these as shown in <a class="reference internal" href="#infinitesquaresolns"><span class="std std-numref">Fig. 2</span></a></p>
+<div class="figure align-default" id="infinitesquaresolns">
+<img alt="_images/WaveFunctionSolns.png" src="_images/WaveFunctionSolns.png" />
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Wave functions for the infinite square well for the first three energy levels.</span><a class="headerlink" href="#infinitesquaresolns" title="Permalink to this image">¶</a></p>
+</div>
+<p>We see that this system is simply just the standing wave system with the string fixed at both ends!  Rearranging we see that
+<span class="math notranslate nohighlight">\(L = n \lambda/2, \,n \in \mathbb{N}\)</span>.  The temporal ODE is of the form:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\mathrm{d} g}{\mathrm{d} t} + \frac{i\,E}{\hbar}\,g = 0\]</div>
+<p>which has solution:</p>
+<div class="math notranslate nohighlight">
+\[g = C\,\exp\left(-i\,\frac{E}{\hbar}\,t \right)\]</div>
+<p>where we found the form of <span class="math notranslate nohighlight">\(E_n\)</span> from the spatial solutions, therefore the full wave function solutions are:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\Psi(x,\,t) &amp;=&amp; A'\,\exp\left(-i\,\frac{E_n}{\hbar}\,t \right)\sin\left(\frac{n\,\pi\,x}{L}\right)\, 0\leq x \leq L\\ 
+\Psi(x,\,t) &amp;=&amp; \text{otherwise}\\
+E_n &amp;=&amp; \frac{\hbar^2\,\pi^2\,n^2}{2m\,L^2},\,n \in \mathbb{N}\end{split}\]</div>
+<p>We can find <span class="math notranslate nohighlight">\(A'\)</span> from the necessity that wave functions are normalised, since</p>
+<div class="math notranslate nohighlight">
+\[\int_{-\infty}^{\infty}\psi\,\psi^*\,\mathrm{d} x = 1\]</div>
+<p>to make the function a probability distribution, that would fix:</p>
+<div class="math notranslate nohighlight">
+\[(A')^2\int_0^L  \sin^2\left(\frac{n\,\pi\,x}{L}\right)\,\mathrm{d} x = 1 \]</div>
+<p>Making use of the double angle formula <span class="math notranslate nohighlight">\(\cos(2A) = 1 -2\sin^2(A)\)</span> to make the integration doable, we find:</p>
+<div class="math notranslate nohighlight">
+\[\frac{(A')^2}{2}\left[x - \frac{L}{2n\,\pi}\cos\left(\frac{2 n\,\pi\,x}{L}\right) \right]_0^L = 
+\frac{(A')^2}{2}L = 1 \Rightarrow A' = \sqrt{\frac{2}{L}}\]</div>
+<p>and therefore the wavefunction over all space is given by:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\Psi(x) = 
+\left\{ 
+\begin{array}{ll}
+\sqrt{\frac{2}{L}}\,\exp\left(-\frac{i\,E_n}{\hbar}\,t \right)\sin\left(\frac{n\,\pi\,x}{L}\right) &amp; 0 \leq x \leq L \\
+0 &amp; x &lt; 0,\, x &gt; L
+\end{array}
+\right.\end{split}\]</div>
+</div>
+<div class="section" id="finite-square-well">
+<h2>Finite Square Well<a class="headerlink" href="#finite-square-well" title="Permalink to this headline">¶</a></h2>
+<p>If the system now has a finite square well, <span class="math notranslate nohighlight">\(V = U_0\)</span>, then <em>is</em> possible to have wavefunction solutions outside of
+<span class="math notranslate nohighlight">\(0 \leq x \leq L\)</span>, lets consider the Schrodinger equation again:</p>
+<div class="math notranslate nohighlight">
+\[-\frac{\hbar^2}{2m}\frac{\mathrm{d}^2 f}{\mathrm{d} x^2} + V\,f = E\,f \longrightarrow \frac{\mathrm{d}^2 f}{\mathrm{d} x^2} + 
+fix\frac{2m(E-U_0)}{\hbar^2} f = 0\]</div>
+<p>which for lower energy solutions <span class="math notranslate nohighlight">\(E &lt; U_0\)</span> means that:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\mathrm{d}^2 f}{\mathrm{d} x^2} - \frac{2m|U_0-E|}{\hbar^2} f = 0\]</div>
+<p>which can be solved to find:</p>
+<div class="math notranslate nohighlight">
+\[f(x) = A\exp\left(-\sqrt{\frac{2m|U_0-E|}{\hbar}}x\right) + B\exp\left(\sqrt{\frac{2m|U_0-E|}{\hbar}}x\right)\]</div>
+<p>since we do not find wave functions growing as <span class="math notranslate nohighlight">\(x \rightarrow \infty\)</span>, <span class="math notranslate nohighlight">\(B = 0\)</span>, meaning that</p>
+<div class="math notranslate nohighlight">
+\[f(x) = A\exp\left(-\sqrt{\frac{2m|U_0-E|}{\hbar}}x\right)\]</div>
+<p>which are exponentially decaying solutions - this is quantum tunnelling!  We can see a pictorial representation of these
+finite well solutions alongside the infinite well solutions in <a class="reference internal" href="#finitesquarewellsolns"><span class="std std-numref">Fig. 3</span></a>.  To find exact expressions
+for the wave functions in the finite well case is not so easy however, as <span class="math notranslate nohighlight">\(\Psi(x,\,t)\)</span> is expected to be continuous.</p>
+<div class="figure align-default" id="finitesquarewellsolns">
+<img alt="_images/FiniteWellSolns1.png" src="_images/FiniteWellSolns1.png" />
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Infinite (<b>left pane</b>) and finite (<b>right pane</b>) square well wave functions.</span><a class="headerlink" href="#finitesquarewellsolns" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="quantum-harmonic-oscillator">
+<h2>Quantum Harmonic Oscillator<a class="headerlink" href="#quantum-harmonic-oscillator" title="Permalink to this headline">¶</a></h2>
+<p>This system is the quantum analogue of the classical simple harmonic oscillator, the Hamiltonian is given by:</p>
+<div class="math notranslate nohighlight">
+\[\hat{H} = -\frac{\hbar^2}{2m}\nabla^2 + \frac{1}{2}m\omega^2\,x^2 \]</div>
+<p>We can solve this system to find wave-functions of the form</p>
+<div class="math notranslate nohighlight">
+\[\psi _{n}(x) = {\frac {1}{\sqrt {2^{n}\,n!}}}\cdot \left({\frac {m\omega }{\pi \hbar }}\right)^{1/4}\cdot 
+e^{-{\frac {m\omega x^{2}}{2\hbar }}}\cdot H_{n}{\Bigl (}{\sqrt {\frac {m\omega }{\hbar }}}x{\Bigr )},\qquad n=0,1,2,\ldots\]</div>
+<p>Where the functions <span class="math notranslate nohighlight">\(H_n\)</span> are known as Hermite polynomials, which satisfy:</p>
+<div class="math notranslate nohighlight">
+\[H_{n}(z)=(-1)^{n}~e^{z^{2}}{\frac {d^{n}}{dz^{n}}}\left(e^{-z^{2}}\right)\]</div>
+<p>The corresponding energy levels for this system are:</p>
+<div class="math notranslate nohighlight">
+\[E_{n}=\hbar \omega {\bigl (}n+{\tfrac {1}{2}}{\bigr )}\]</div>
+</div>
+<div class="section" id="revisiting-the-hydrogen-atom">
+<h2>Revisiting the Hydrogen Atom<a class="headerlink" href="#revisiting-the-hydrogen-atom" title="Permalink to this headline">¶</a></h2>
+<p>We can put in a Coulomb law’s potential into the TISE as a model for the Hydrogen atom, this gives:</p>
+<div class="math notranslate nohighlight">
+\[\left(-\frac{\hbar^2}{2\mu}\nabla^2 - \frac{e^2}{4\pi\,\epsilon_0\,r} \right)\psi(r,\,\theta,\,\phi) = E \,\psi(r,\,\theta,\,\varphi)\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mu\)</span> is the {\it reduced mass} of the system, which takes into account the slight influence of the electron mass <span class="math notranslate nohighlight">\(m_e\)</span> on the proton mass <span class="math notranslate nohighlight">\(M_p\)</span>, the centre of mass of the system is shifted slightly:</p>
+<div class="math notranslate nohighlight">
+\[\mu = \frac{m_e\,M_p}{m_e + M_p} = m_e\left(1 + \frac{m_e}{M_p}\right)^{-1} \simeq m_e - \dots \]</div>
+<p>If we expand the Laplacian <span class="math notranslate nohighlight">\(\nabla^2\)</span> in spherical polar coordinates, this produces a PDE:</p>
+<div class="math notranslate nohighlight">
+\[-\frac{\hbar^2}{2\mu}\frac{1}{r^2}\left[ \frac{\partial}{\partial r}\left( r^2\,\frac{\partial\psi}{\partial r}\right) + \frac{1}{\sin\theta}\frac{\partial}{\partial \theta}\left(\sin\theta\, \frac{\partial \psi}{\partial \theta} \right) + \frac{1}{\sin^2\theta}\frac{\partial^2 \psi}{\partial \varphi^2}\right] - \frac{e^2}{4\pi\,\epsilon_0\,r} \psi = E \,\psi\]</div>
+<p>which turns out to be separable using the ansatz:</p>
+<div class="math notranslate nohighlight">
+\[\psi(r,\,\theta,\varphi) = R(r)\,\,\Theta(\theta)\,\,\Phi(\varphi)\]</div>
+<p>which reduces the PDE into three ODE’s:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\frac{\mathrm{d} }{\mathrm{d} r}\left( r^2\frac{\mathrm{d} R}{\mathrm{d} r}\right) + \frac{2\mu\,r^2}{\hbar^2}\left(E + \frac{Z\,e^2}{4 \pi \epsilon_0 \,r} \right)R - A\,R &amp;=&amp; 0\\
+\frac{\sin \theta}{\Theta}\frac{\mathrm{d} }{\mathrm{d} \theta}\left( \sin\theta\frac{\mathrm{d} \Theta}{\mathrm{d} \theta} \right) + A\sin^2 \theta - B &amp;=&amp; 0 \\
+\frac{1}{\Phi}\frac{\mathrm{d}^2 \Phi}{\mathrm{d} \varphi} + B &amp;=&amp; 0\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(A,\,B\)</span> are the separation constants for this system.  This system can be solved using a combination of integrating factor for the
+<span class="math notranslate nohighlight">\(R(r)\)</span> functions and <b>Spherical Harmonics</b> for <span class="math notranslate nohighlight">\(\Theta(\theta),\,\Phi(\varphi)\)</span>, which are complete functions that can be used to
+decompose the surface of a sphere.  The overall solutions are:</p>
+<div class="math notranslate nohighlight">
+\[\psi _{n\ell m}(r,\theta ,\varphi ) = {\sqrt {{\left({\frac {2}{n\,{a_0}^{*}}}\right)}^{3}\,\,{\frac {(n-\ell -1)!}{2n(n+\ell )!}}}}\,
+e^{-\rho /2}\rho ^{\ell }\,{L_{n-\ell -1}}^{2\ell +1}(\rho )\,Y_{\ell }^{m}(\theta ,\varphi )\]</div>
+<p>Where the radial coordinate <span class="math notranslate nohighlight">\(r\)</span> is best represented by a dimensionless parameter <span class="math notranslate nohighlight">\(\rho\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\rho = \frac{2r}{n{a_0}^{*}}\]</div>
+<p>and the parameter <span class="math notranslate nohighlight">\({a_0}^{*}\)</span> is known as the reduced Bohr radius:</p>
+<div class="math notranslate nohighlight">
+\[{a_0}^{*} = \frac{4\pi \epsilon_0\,\hbar^2}{\mu\,e^2}\]</div>
+<p>taking into account the reduced mass <span class="math notranslate nohighlight">\(\mu\)</span>.<br />
+The function <span class="math notranslate nohighlight">\({L_{n-\ell -1}}^{2\ell +1}(\rho )\)</span> is a generalized Laguerre polynomial of degree <span class="math notranslate nohighlight">\( n-\ell -1\)</span>, and the function
+<span class="math notranslate nohighlight">\(Y_{\ell}^{m}(\theta,\,\varphi)\)</span> is a spherical harmonic function of degree <span class="math notranslate nohighlight">\(\ell\)</span> and order <span class="math notranslate nohighlight">\(m\)</span>.  The parameters <span class="math notranslate nohighlight">\(\ell,\,m,\,n\)</span>
+are known as quantum numbers and can take the following values:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\( n = 1,2,3,\ldots \)</span> this is known as the <b>principal</b> quantum number.</p></li>
+<li><p><span class="math notranslate nohighlight">\( \ell = 0,1,2,\ldots ,n-1 \)</span> this is known as the <b>azimuthal</b> quantum number.</p></li>
+<li><p><span class="math notranslate nohighlight">\( m = -\ell ,\ldots ,\ell \)</span> this is known as the <b>magnetic</b> quantum number.</p></li>
+</ul>
+<p>Additionally, the wave-functions are both normalized and orthogonal:</p>
+<div class="math notranslate nohighlight">
+\[\int _{0}^{\infty }r^{2}\,\mathrm{d} r\int _{0}^{\pi }\sin \theta \,\mathrm{d} \theta \int _{0}^{2\pi }\mathrm{d} \varphi 
+\,\,\psi _{n\ell m}^{*}(r,\,\theta,\,\varphi)\,\,\psi_{n'\ell 'm'}(r,\theta ,\varphi )= \delta_{n\,n'}\delta_{\ell \,\ell '}\delta_{m\,m'}\]</div>
+</div>
+<div class="section" id="a-note-on-units">
+<h2>A note on units<a class="headerlink" href="#a-note-on-units" title="Permalink to this headline">¶</a></h2>
+<p>It is usually easier to use <b>atomic units</b> when considering the computing systems, this saves memory storing excessively large or
+small values and only converting values at the end,  In Hartree atomic units, we set <span class="math notranslate nohighlight">\(\hbar = m_e = a_0 = e = 1\)</span> and energies measured in
+atomic units can be converted into electron volts using the Hartree energy:</p>
+<div class="math notranslate nohighlight">
+\[E_{h} = m_e\left(\frac{e^2}{4\pi\,\epsilon_0\,\hbar} \right)^2 \simeq 27.211\dots \text{eV}\]</div>
+<p>If we consider the Hydrogen atom Hamiltonian:</p>
+<div class="math notranslate nohighlight">
+\[\hat{H} = - \frac{\hbar^2}{2m}\nabla^2 - \frac{1}{4\pi\,\epsilon_0}\frac{e^2}{r} \rightarrow -\frac{1}{2} \nabla^2  - \frac{1}{r}\]</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="QM.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Quantum Mechanics</p>
+            </div>
+        </a>
+    </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Ali Mozaffari<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

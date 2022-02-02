@@ -1,0 +1,409 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quantum Mechanics &#8212; Density Functional Theory</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Solvable Quantum Models" href="Hydrogen.html" />
+    <link rel="prev" title="Density Functional Theory" href="intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Density Functional Theory</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Density Functional Theory
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Quantum Mechanics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Hydrogen.html">
+   Solvable Quantum Models
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/QM.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FQM.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-schrodinger-equation">
+   The Schrodinger Equation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basic-wave-theory">
+     Basic Wave Theory}
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#quantum-matter-waves">
+     Quantum Matter Waves
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="quantum-mechanics">
+<h1>Quantum Mechanics<a class="headerlink" href="#quantum-mechanics" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="the-schrodinger-equation">
+<h2>The Schrodinger Equation<a class="headerlink" href="#the-schrodinger-equation" title="Permalink to this headline">¶</a></h2>
+<p>Quantum theory essentially represents the theory of energy and matter on the smallest scales of nature.  It has foundations in the theory of
+waves, however the ideas concerned can be used to develop all the modern theories of Chemistry, Physics and Structural Biology.</p>
+<div class="section" id="basic-wave-theory">
+<h3>Basic Wave Theory}<a class="headerlink" href="#basic-wave-theory" title="Permalink to this headline">¶</a></h3>
+<p>The wave equation, in 1D, in classical physics is given by:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial^2 \Psi}{\partial t^2} = c^2 \frac{\partial^2 \Psi}{\partial x^2}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\Psi\)</span> represents some displacement from equilibrium. If we want to extend this to 2D or 3D we can use the Laplacian
+<span class="math notranslate nohighlight">\(\nabla^2 = \nabla\cdot \nabla\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial^2 \Psi}{\partial t^2} = c^2 \nabla^2 \Psi\]</div>
+<p>Finding solutions to PDEs is typically tricky, however through analysis of the PDE, we find they have the form:</p>
+<div class="math notranslate nohighlight">
+\[\Psi(x,\,t) = A\,\exp(x - ct) + B\,\exp(x + ct)\]</div>
+<p>where <span class="math notranslate nohighlight">\(A,\,B\)</span> are constants.  We can show that the <span class="math notranslate nohighlight">\(A\)</span> solutions represent travelling waves moving left to right (forwards) and the
+<span class="math notranslate nohighlight">\(B\)</span> solutions represent travelling waves moving right to left (backwards).  We can find solution of this PDE that are of a separable form:</p>
+<div class="math notranslate nohighlight">
+\[\Psi(x,\,t) = f(x)\,g(t)\]</div>
+<p>substituting this in gives us:</p>
+<div class="math notranslate nohighlight">
+\[f\,\frac{\mathrm{d}^2 g}{\mathrm{d} t^2} = c^2 g\,\frac{\mathrm{d}  f}{\mathrm{d}^2 x^2}\]</div>
+<p>where we find the partial derivatives are are not just regular one variable derivatives.  Rearranging gives:</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{c^2\,g}\,\frac{\mathrm{d}^2 g}{\mathrm{d} t^2} = \frac{1}{f}\,\frac{\mathrm{d}  f}{\mathrm{d}^2 x^2}\]</div>
+<p>Looking at this equation, since we separated out the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(t\)</span> dependence’s into functions <span class="math notranslate nohighlight">\(f\)</span> and <span class="math notranslate nohighlight">\(g\)</span> respectively, then although the
+LHS here appears to <b>only</b> depend on <span class="math notranslate nohighlight">\(t\)</span>, since it equals the RHS and that <b>does not</b> depend on <span class="math notranslate nohighlight">\(t\)</span>, but the LHS cannot depend
+on <span class="math notranslate nohighlight">\(t\)</span> either.  Likewise looking at the RHS, it appears to <b>only</b> depend on <span class="math notranslate nohighlight">\(x\)</span>, but since it equals the LHS and that <b>does not</b>
+depend on <span class="math notranslate nohighlight">\(x\)</span>, the RHS cannot depend on <span class="math notranslate nohighlight">\(x\)</span> either.  Therefore the only thing both sides can depend on is a constant, which we will
+denote as <span class="math notranslate nohighlight">\(-k^2\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\frac{1}{c^2\,g}\,\frac{\mathrm{d}^2 g}{\mathrm{d} t^2} = -k^2 &amp;\Longrightarrow&amp; \frac{\mathrm{d}^2 g}{\mathrm{d} t^2} = -k^2\,c^2\,g\\ 
+\frac{1}{f}\,\frac{\mathrm{d}^2 f}{\mathrm{d} x^2} = -k^2 &amp;\Longrightarrow&amp; \frac{\mathrm{d}^2 f}{\mathrm{d} x^2} = -k^2\,f\end{split}\]</div>
+<p>We can solve these resulting ODEs:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}f(x) &amp;=&amp; C\,\exp(i\,k\,x) + D\,\exp(-i\,k\,x) \\
+g(t) &amp;=&amp; E\,\exp(i\,k\,c\,t) + F\,\exp(-i\,k\,c\,t) \end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(C,\,D,\,E,\,F\)</span> are constants.  If <span class="math notranslate nohighlight">\(x,\,t\)</span> are variables that carry units <span class="math notranslate nohighlight">\([\text{length}]\)</span>, <span class="math notranslate nohighlight">\([\text{times}]\)</span> respectively, then the arguments
+of the functions should be dimensionless, so lets call <span class="math notranslate nohighlight">\(k\)</span> our wavevector and <span class="math notranslate nohighlight">\(kc = \omega\)</span> our angular frequency.  We notice that these
+solutions are periodic:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\omega t \rightarrow \omega t + 2\pi &amp;\Longrightarrow&amp; t \rightarrow  t + \frac{2\pi}{\omega} = t + T\\
+kx \rightarrow kx + 2\pi &amp;\Longrightarrow&amp; x \rightarrow x + \frac{2\pi}{k} = x + \lambda\end{split}\]</div>
+<p>therefore we find the regular wave quantities <span class="math notranslate nohighlight">\(T = \frac{2\pi}{\omega}\)</span> and <span class="math notranslate nohighlight">\(\lambda = \frac{2\pi}{k}\)</span>.  Lets take a trial wave solution:</p>
+<div class="math notranslate nohighlight">
+\[\Psi = A \,\exp(i(kx - \omega t))\]</div>
+<p>and substitute into the wave equation:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial^2 \Psi}{\partial t^2} = c^2 \frac{\partial^2 \Psi}{\partial x^2} \Rightarrow -\omega^2\,\Psi = -c^2 \,k^2\,\Psi\]</div>
+<p>and therefore</p>
+<div class="math notranslate nohighlight">
+\[\omega = \pm k\,c\]</div>
+<p>where each sign here represents the left or right moving waves we discussed before.  We call such a formula that links together
+the angular frequency with wavevector a <b>dispersion relation</b>.  In higher dimensions, we find that we have wave solutions of the form:</p>
+<div class="math notranslate nohighlight">
+\[\Psi({\bf x},\,t) = A\,\exp(i({\bf k}\cdot {\bf x} - \omega t))\]</div>
+<p>and the dispersion relation depends on <span class="math notranslate nohighlight">\(k = |{\bf k}|\)</span>.  So far we have used the wave equation to construct the dispersion relation for
+travelling waves, but we can also try to reverse engineering this process to construct the wave equation from the form of the dispersion relation.</p>
+</div>
+<div class="section" id="quantum-matter-waves">
+<h3>Quantum Matter Waves<a class="headerlink" href="#quantum-matter-waves" title="Permalink to this headline">¶</a></h3>
+<p>Lets start with some basic quantum physics, for a particle moving with momentum <span class="math notranslate nohighlight">\({\bf p}\)</span>, its magnitude <span class="math notranslate nohighlight">\(p = |{\bf p}|\)</span> is related to the
+de Broglie wavelength <span class="math notranslate nohighlight">\(\lambda\)</span> by:</p>
+<div class="math notranslate nohighlight">
+\[\lambda = \frac{h}{p} \]</div>
+<p>which we can rewrite in terms of wavevector <span class="math notranslate nohighlight">\(k = |{\bf k}| = \frac{2\pi}{\lambda}\)</span></p>
+<div class="math notranslate nohighlight" id="equation-debrogliep">
+<span class="eqno">(1)<a class="headerlink" href="#equation-debrogliep" title="Permalink to this equation">¶</a></span>\[p = \hbar k\]</div>
+<p>where <span class="math notranslate nohighlight">\(\hbar = \frac{h}{2\pi}\)</span> is the reduced Planck’s constant.
+Likewise the Planck equation for energy <span class="math notranslate nohighlight">\(E\)</span> and frequency <span class="math notranslate nohighlight">\(f\)</span>, can be rewritten using the angular frequency <span class="math notranslate nohighlight">\(\omega = 2 \pi f\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-plancke">
+<span class="eqno">(2)<a class="headerlink" href="#equation-plancke" title="Permalink to this equation">¶</a></span>\[E = hf = \hbar \omega\]</div>
+<p>For a free particle, moving with velocity <span class="math notranslate nohighlight">\({\bf v}\)</span>, the only contribution to the energy <span class="math notranslate nohighlight">\(E\)</span> is the kinetic energy
+<span class="math notranslate nohighlight">\(\frac{1}{2}mv^2\)</span> where <span class="math notranslate nohighlight">\(v^2 = {\bf v}\cdot{\bf v}\)</span> and since <span class="math notranslate nohighlight">\({\bf p} = m{\bf v}\)</span>, this means we can rewrite</p>
+<div class="math notranslate nohighlight">
+\[E = \frac{p^2}{2m}\]</div>
+<p>where <span class="math notranslate nohighlight">\(p^2 = {\bf p}\cdot{\bf p}\)</span>.  Substituting in the quantum equations <a class="reference internal" href="#equation-debrogliep">(1)</a>-<a class="reference internal" href="#equation-plancke">(2)</a>Sxx	 here gives:</p>
+<div class="math notranslate nohighlight">
+\[\hbar \omega = \frac{\hbar^2 k^2}{2m}\]</div>
+<p>producing a radically different dispersion relation to those from travelling waves.  But can we construct a wave equation that
+similarly produces this? Well if we have the complex form of wave as</p>
+<div class="math notranslate nohighlight">
+\[\psi(x,t) = \psi_0 \exp(i(kx-\omega t)) \]</div>
+<p>then we can see that in order to get a <span class="math notranslate nohighlight">\(k^2\)</span> here we need a <span class="math notranslate nohighlight">\(\frac{\partial^2}{\partial x^2}\)</span> term in the wave equation and for a
+<span class="math notranslate nohighlight">\(\omega\)</span> term we need a <span class="math notranslate nohighlight">\(\frac{\partial}{\partial t}\)</span> term in the wave equation.</p>
+<p>\noindent These will result in an equation of the form:</p>
+<div class="math notranslate nohighlight">
+\[A \frac{\partial \psi}{\partial t} = B\frac{\partial^2 \psi}{\partial x^2}\]</div>
+<p>where <span class="math notranslate nohighlight">\(A = i \hbar\)</span> because <span class="math notranslate nohighlight">\(\frac{\partial \psi}{\partial t} = -i\omega \psi\)</span> and <span class="math notranslate nohighlight">\(B = -\frac{\hbar^2}{2m}\)</span> because
+<span class="math notranslate nohighlight">\(\frac{\partial^2 \psi}{\partial x^2} = -k^2 \psi\)</span> producing a one dimensional free particle equation of the form:</p>
+<div class="math notranslate nohighlight">
+\[i \hbar\frac{\partial \psi}{\partial t} = -\frac{\hbar^2}{2m}\frac{\partial^2 \psi}{\partial x^2}\]</div>
+<p>If we want to include a potential energy <span class="math notranslate nohighlight">\(V = V(x,t)\)</span> in the system, then we first rewrite the energy as KE + PE:</p>
+<div class="math notranslate nohighlight">
+\[E = \frac{p^2}{2m} + V\]</div>
+<p>which results in a modified dispersion relation</p>
+<div class="math notranslate nohighlight">
+\[\hbar \omega = \frac{\hbar^2 k^2}{2m} + V\]</div>
+<p>and so a modified wave equation of the form:</p>
+<div class="math notranslate nohighlight">
+\[i \hbar\frac{\partial \psi}{\partial t} = -\frac{\hbar^2}{2m}\frac{\partial^2 \psi}{\partial x^2} + V\psi\]</div>
+<p>which is known as the <b>Time Dependent Schr”odinger Equation (TDSE)</b>.  Sometimes this is written in the form of an
+eigenvalue problem:</p>
+<div class="math notranslate nohighlight">
+\[ -\frac{\hbar^2}{2m}\frac{\partial^2 \psi}{\partial x^2} + V\psi= E\psi\]</div>
+<p>which is known as the <b>Time Independent Schrodinger Equation (TISE)</b> where <span class="math notranslate nohighlight">\(E\)</span> are the energy eigenvalues.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="intro.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Density Functional Theory</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="Hydrogen.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Solvable Quantum Models</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Ali Mozaffari<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
