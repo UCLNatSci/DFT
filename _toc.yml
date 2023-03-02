@@ -3,6 +3,11 @@
 
 format: jb-book
 root: intro
-chapters:
-- file: QM
-- file: Hydrogen
+parts:
+  - caption: Introductory Material
+    numbered: True
+    chapters:
+    - file: Solving_the_Schrodinger_Equation_Numerically.ipynb
+    - file: QM
+    - file: Hydrogen
+    - file: basics

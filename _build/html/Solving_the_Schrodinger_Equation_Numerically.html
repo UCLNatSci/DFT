@@ -1,0 +1,705 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1. Matrix Differential Equations &#8212; Density Functional Theory</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="2. Quantum Mechanics" href="QM.html" />
+    <link rel="prev" title="Density Functional Theory" href="intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Density Functional Theory</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Density Functional Theory
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introductory Material
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   1. Matrix Differential Equations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="QM.html">
+   2. Quantum Mechanics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Hydrogen.html">
+   3. Solvable Quantum Models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="basics.html">
+   4. Homework
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Solving_the_Schrodinger_Equation_Numerically.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FSolving_the_Schrodinger_Equation_Numerically.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/Solving_the_Schrodinger_Equation_Numerically.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#method">
+   1.1. Method
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#discretization">
+     1.1.1. Discretization
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#forward-and-backward-first-order-differential">
+     1.1.2. Forward and Backward first order differential
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#matrix-representation">
+       1.1.2.1. Matrix representation
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#second-order-differential">
+   1.2. Second order Differential
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solving-the-schrodinger-equation">
+   1.3. Solving the Schrödinger Equation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#infinite-square-well">
+     1.3.1. Infinite Square Well
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#finite-square-well-bound-state">
+   1.4. Finite Square Well Bound State
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Matrix Differential Equations</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#method">
+   1.1. Method
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#discretization">
+     1.1.1. Discretization
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#forward-and-backward-first-order-differential">
+     1.1.2. Forward and Backward first order differential
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#matrix-representation">
+       1.1.2.1. Matrix representation
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#second-order-differential">
+   1.2. Second order Differential
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solving-the-schrodinger-equation">
+   1.3. Solving the Schrödinger Equation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#infinite-square-well">
+     1.3.1. Infinite Square Well
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#finite-square-well-bound-state">
+   1.4. Finite Square Well Bound State
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="section" id="matrix-differential-equations">
+<h1><span class="section-number">1. </span>Matrix Differential Equations<a class="headerlink" href="#matrix-differential-equations" title="Permalink to this headline">¶</a></h1>
+<p>In this section, we will work on finding a purely numerical solution to the time independent Schrödinger Equation (SE).</p>
+<div class="math notranslate nohighlight">
+\[ -\frac{\hbar^2}{2m}\nabla^2 \psi(x) + V(x)\psi(x) = E\psi(x)\]</div>
+<p>which in one dimension looks like:</p>
+<div class="math notranslate nohighlight">
+\[ -\frac{\hbar^2}{2m}\frac{d^2}{d x^2} \psi(x) + V(x)\psi(x) = E\psi(x)\]</div>
+<p>Our method for solving this will be to write this as a <strong>matrix</strong> equation and then finding the (energy) eigenvalues and (wave) eigenfunctions.</p>
+<p>Our choice of potential here will be infinite square well, but this can be modified to consider a range of other quantum systems.</p>
+<div class="section" id="method">
+<h2><span class="section-number">1.1. </span>Method<a class="headerlink" href="#method" title="Permalink to this headline">¶</a></h2>
+<p>We will use a <a class="reference external" href="https://uclnatsci.github.io/2022/NSCI0011/fdiff/intro.html">finite differences</a> method to calculate the derivatives, we will use a simple stencil for this (although could include more terms later).  In order to write this system in matrix form, we will turn the function <span class="math notranslate nohighlight">\(\psi(x)\)</span> into a vector (which is a list in Python) and the operator of the differential equation into a matrix - this produces a matrix eigenequation, which we can diagonalize to get our answers.</p>
+<div class="section" id="discretization">
+<h3><span class="section-number">1.1.1. </span>Discretization<a class="headerlink" href="#discretization" title="Permalink to this headline">¶</a></h3>
+<p>The process of discretization is simply turning our continuous space <span class="math notranslate nohighlight">\(x\)</span>, into a discrete number of steps, <span class="math notranslate nohighlight">\(N\)</span>, and our function <span class="math notranslate nohighlight">\(\psi(x)\)</span> into an array of size <span class="math notranslate nohighlight">\(N\)</span>. We thus have <span class="math notranslate nohighlight">\(N\)</span> values <span class="math notranslate nohighlight">\(x_i\)</span>, which have a stepsize <span class="math notranslate nohighlight">\(h = \Delta x = x_{i+1} - x_i\)</span>. Our choice of the <em>size</em> of our space, <span class="math notranslate nohighlight">\(N\)</span>, turns out to be important. Too large a number will slow down our computation and require too much computer memory, too small a number and the answers we compute will not be sufficiently accurate. A common practice is to start with a small number <span class="math notranslate nohighlight">\(N\)</span> and then increase it until the accuracy is acceptable. The actual value you obtain in the end will depend on the problem you are studying.</p>
+</div>
+<div class="section" id="forward-and-backward-first-order-differential">
+<h3><span class="section-number">1.1.2. </span>Forward and Backward first order differential<a class="headerlink" href="#forward-and-backward-first-order-differential" title="Permalink to this headline">¶</a></h3>
+<p>We first need to develop how we will take the derivative of our function. Going back to our introduction to calculus, we remember that the derivative was defined as:</p>
+<div class="math notranslate nohighlight">
+\[\frac{d}{dx} f(x) = \lim_{\Delta x \rightarrow 0} \frac{f(x+\Delta x) - f(x)}{\Delta x} \approx \frac{f(x+h) - f(x)}{h} + \mathrm{O}(h)\]</div>
+<p>When we take a <em>finite difference</em>, we simply not take the limit all the way down to 0, but stop at <span class="math notranslate nohighlight">\(\Delta x = h\)</span>. Note that for this equation we evaluate the point just <em>after</em> <span class="math notranslate nohighlight">\(x\)</span>, which we call the <em>forward difference</em>. If you actually let <span class="math notranslate nohighlight">\(\Delta x \rightarrow 0\)</span>, then this does not matter, but if you do a finite difference, you can also do:</p>
+<div class="math notranslate nohighlight">
+\[\frac{d}{dx} f(x) = \lim_{\Delta x \rightarrow 0} \frac{f(x) - f(x-\Delta x)}{\Delta x} \approx \frac{f(x) - f(x-h)}{h} + \mathrm{O}(h)\]</div>
+<p>which is known as the <em>backward difference</em>.</p>
+<p>You can also compute a <em>central difference</em>, but cannot use steps of <span class="math notranslate nohighlight">\(\frac{1}{2}\Delta x\)</span>, since that does not exist in our space. The central difference is then a combination of the previous two:</p>
+<div class="math notranslate nohighlight">
+\[\frac{d}{dx} f(x) = \lim_{\Delta x \rightarrow 0} \frac{f(x+\Delta x) - f(x-\Delta x)}{2\Delta x}\approx \frac{f(x+h) - f(x-h)}{2h} + \mathrm{O}(h^2)\]</div>
+<p>As you will have discussed in the finite differences section, the central difference method can have an error quite a bit lower than the than the first two methods.</p>
+<p>Note that for any of these approximations to a derivative, we have a problem at the edges of our space. Either on one end or the other, there is no <span class="math notranslate nohighlight">\(x-\Delta x\)</span> or <span class="math notranslate nohighlight">\(x+\Delta x\)</span>, but here we are just not going to worry about this detail.</p>
+<div class="section" id="matrix-representation">
+<h4><span class="section-number">1.1.2.1. </span>Matrix representation<a class="headerlink" href="#matrix-representation" title="Permalink to this headline">¶</a></h4>
+<p>We now want to turn the equation into a matrix equation for us to evaluate. If you just want to take the derivative of a function stored in an array, then this is not needed, you can run a loop and evaluate the equation for each <span class="math notranslate nohighlight">\(x_i\)</span>, but if you want to solve a differential equation, we need the matrix.</p>
+<p>We introduce the vectors <span class="math notranslate nohighlight">\(f(x) = [f_0,f_1,f_2,...,f_{N-1}]\)</span> and for the derivative <span class="math notranslate nohighlight">\(f'(x) = [f'_0,f'_1,f'_2...,f'_{N-1}]\)</span>.</p>
+<p>The forward difference derivative can then be written as:</p>
+<div class="math notranslate nohighlight">
+\[f'_i = (f_{i+1} - f_i)/h \]</div>
+<p>And the matrix equation for the forward difference derivative is just:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{pmatrix}f'_0 \\ f'_1 \\\vdots \\ f'_{N-1}\end{pmatrix} = \frac{1}{h}
+\begin{pmatrix} -1 &amp; 1 &amp; 0 &amp; &amp; \\ 0 &amp; -1 &amp; 1 &amp; &amp; \\ &amp; &amp; \ddots &amp; \ddots \\
+&amp; &amp; &amp; -1 &amp; \end{pmatrix}\begin{pmatrix}f_0 \\ f_1 \\\vdots \\ f_{N-1}\end{pmatrix}\end{split}\]</div>
+<p>We note that the last entry in the matrix will not be correct because there is no element for <span class="math notranslate nohighlight">\(N\)</span>. We can fix this up by taking the <em>backward</em> derivative at the last point.</p>
+<p>We can show this in action by taking the derivative of <span class="math notranslate nohighlight">\(\sin(x)\)</span> and plotting the result.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Define the number of points in our space, N</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">128</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+
+<span class="c1"># Define the x space from 0 to a with N-1 divisions.</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+
+<span class="c1"># We want to store step size, this is the reliable way:</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># Should be equal to 2*np.pi/(N-1)</span>
+
+<span class="c1"># Compute the function, y = sin(x). With numpy this is easy:</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># We compute the matrix using the np.diag(np.ones(N),0) which creates a </span>
+<span class="c1"># diagonal matrix of 1 of NxN size. Multiply by -1 to get -1 diagonal array.</span>
+<span class="c1"># You get an +1 off-diagonal array of ones, with np.diag(np.ones(N-1),1)</span>
+<span class="c1"># Note that you need N-1 for an NxN array, since the off diagonal is one smaller.</span>
+<span class="c1"># Add the two together and normalize by 1/h</span>
+<span class="n">Md</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">/</span><span class="n">h</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span> <span class="o">-</span><span class="mf">1.</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="p">),</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="c1"># Compute the derivative of y into yp by matrix multiplication:</span>
+<span class="n">yp</span> <span class="o">=</span> <span class="n">Md</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># Plot the results.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">yp</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="c1"># Don&#39;t plot last value, which is invalid</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Solving_the_Schrodinger_Equation_Numerically_2_0.png" src="_images/Solving_the_Schrodinger_Equation_Numerically_2_0.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="second-order-differential">
+<h2><span class="section-number">1.2. </span>Second order Differential<a class="headerlink" href="#second-order-differential" title="Permalink to this headline">¶</a></h2>
+<p>We can now extend this method to the second order differential. If we take the backward differential of the result of a forward differential, we get:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\frac{d^2}{dx^2}f(x) = \lim_{\Delta x \rightarrow 0} \frac{f'(x)-f'(x-\Delta x)}{\Delta x} =  \lim_{\Delta x \rightarrow 0} \frac{f(x+\Delta x) - f(x) - (f(x) - f(x-\Delta x))}{\Delta x^2} \\
+\frac{d^2}{dx^2}f(x) = \lim_{\Delta x \rightarrow 0} \frac{f(x+\Delta x) - 2f(x) + f(x-\Delta x))}{\Delta x^2} \approx \frac{f(x+h) - 2f(x) + f(x-h))}{h^2}\end{split}\]</div>
+<p>So in the discrete space we can write this as:</p>
+<div class="math notranslate nohighlight">
+\[ f''_i = (f_{i+1} - 2f_i + f_{i-1})/h^2 \]</div>
+<p>And finally, as a matrix equation, the second derivative is then:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{pmatrix}f''_0 \\ f''_1 \\ f''_2 \\\vdots \\ f''_{N-1}\end{pmatrix} = \frac{1}{h^2}
+\begin{pmatrix} -2 &amp; 1 &amp; 0 &amp; 0 &amp; \\ 1 &amp; -2 &amp; 1 &amp; 0 &amp; \\ 
+0&amp; 1 &amp; -2 &amp; 1 &amp;  \\ &amp;  &amp; \ddots &amp; \ddots &amp; \ddots &amp;\\
+&amp;  &amp; &amp; 1 &amp; -2 \end{pmatrix}\begin{pmatrix}f_0 \\ f_1 \\ f_2 \\\vdots \\ f_{N-1}\end{pmatrix}\end{split}\]</div>
+<p>Where now we note that at both ends of our array we will get an inaccurate answer unless we do some fixup. The fixup in this case is to use the same elements as the row below (at the start) or the row above (at the end), so we get <span class="math notranslate nohighlight">\(f''_0 = f''_1\)</span> and <span class="math notranslate nohighlight">\(f''_{N-1} = f''_{N-2}\)</span>, which is not great but better than the alternative.</p>
+<p>We can now try this matrix to compute the second derivative of our <span class="math notranslate nohighlight">\(y(x)\)</span> array.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Mdd</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">/</span><span class="p">(</span><span class="n">h</span><span class="o">*</span><span class="n">h</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span> <span class="o">-</span><span class="mf">2.</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="p">),</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">ypp</span> <span class="o">=</span> <span class="n">Mdd</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">yp</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>     <span class="c1"># Last value is invalid, don&#39;t plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">ypp</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># First and last value is invalid.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Solving_the_Schrodinger_Equation_Numerically_4_0.png" src="_images/Solving_the_Schrodinger_Equation_Numerically_4_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="solving-the-schrodinger-equation">
+<h2><span class="section-number">1.3. </span>Solving the Schrödinger Equation<a class="headerlink" href="#solving-the-schrodinger-equation" title="Permalink to this headline">¶</a></h2>
+<p>We can now setup the Schrodinger Equation as a matrix equation:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\hat H = \frac{\hbar^2}{2m}\frac{d^2}{d x^2} + V \\
+\hat H \psi(x) = E \psi(x)\end{split}\]</div>
+<p>We now know the matrix for taking the second order derivative. The matrix for the potential is simply the values of the potential on the diagonal of the matrix: <span class="math notranslate nohighlight">\(\mathbf{V}_{i=j} = V_i\)</span>.</p>
+<p>Writing out the matrix for <span class="math notranslate nohighlight">\(\mathbf{H}\)</span> we get:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{H} = \frac{-\hbar^2}{2 m h^2} \begin{pmatrix} -2 &amp; 1 &amp; 0 &amp; 0 &amp; \\ 1 &amp; -2 &amp; 1 &amp; 0 &amp; \\ 
+0&amp; 1 &amp; -2 &amp; 1 &amp;  \\ &amp;  &amp; \ddots &amp; \ddots &amp; \ddots &amp;\\
+&amp;  &amp; &amp; 1 &amp; -2 \end{pmatrix} + 
+\begin{pmatrix} V_0 &amp; 0 &amp; 0 &amp; &amp; \\ 0 &amp; V_1 &amp; 0 &amp; &amp; \\ 0 &amp; 0 &amp; V_2 &amp; &amp; \\ &amp; &amp; &amp;\ddots &amp; \\ &amp;&amp;&amp;&amp;V_{N-1}\end{pmatrix}\end{split}\]</div>
+<p>It is worth looking at the matrix of the Hamiltonian and notice the symmetry: <span class="math notranslate nohighlight">\(\mathbf{H}^T = \mathbf{H}\)</span>, so the transpose of the matrix is identical to the matrix. Since the matrix is <em>real</em> everywhere, the complex conjugate is also the same: <span class="math notranslate nohighlight">\(\mathbf{H}^*=\mathbf{H}\)</span>. Combining these two statements, we can say that the Hamiltonian is Hermitian: <span class="math notranslate nohighlight">\(\mathbf{H}^\dagger = \mathbf{H}\)</span>.</p>
+<div class="section" id="infinite-square-well">
+<h3><span class="section-number">1.3.1. </span>Infinite Square Well<a class="headerlink" href="#infinite-square-well" title="Permalink to this headline">¶</a></h3>
+<p>The very simplest system to solve for is the infinite square well, for which <span class="math notranslate nohighlight">\(V=0\)</span>. We will readily recognize the results as alternating <span class="math notranslate nohighlight">\(\cos(x)\)</span> and <span class="math notranslate nohighlight">\(\sin(x)\)</span> functions, and the energy levels are:</p>
+<div class="math notranslate nohighlight">
+\[E_i = \frac{n^2\pi^2\hbar^2}{2ma^2}\]</div>
+<p>First, we need to discuss a subtlety - the infinite square well from <span class="math notranslate nohighlight">\(-a/2\)</span> to <span class="math notranslate nohighlight">\(a/2\)</span> has <span class="math notranslate nohighlight">\(V=\infty\)</span> <em>at</em> these points, but obviously we would get into trouble trying to enter an infinite potential in our model, so we just limit the computational space to just worry about <span class="math notranslate nohighlight">\(-a/2+h\)</span> to <span class="math notranslate nohighlight">\(a/2-h\)</span>, where <span class="math notranslate nohighlight">\(h\)</span> is our step size and then use boundary conditions to force the wavefunction to be zero at the space end points.</p>
+<p>We create <span class="math notranslate nohighlight">\(x_{full}\)</span> as the full x-axis from <span class="math notranslate nohighlight">\(-a/2\)</span> to <span class="math notranslate nohighlight">\(a/2\)</span>, but take <span class="math notranslate nohighlight">\(N+2\)</span> steps, but leave out the first and last point when calculating the wavefunctions. Just before we we want to use the solutions however (e.g. before plotting) we add a zero to the beginning and end of the wavefunctions, so that we get the expected result.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">scipy.linalg</span> <span class="k">as</span> <span class="nn">scl</span>
+<span class="n">hbar</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">m</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">512</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">a</span><span class="o">/</span><span class="mf">2.</span><span class="p">,</span><span class="n">a</span><span class="o">/</span><span class="mf">2.</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+
+<span class="c1"># We want to store step size, this is the reliable way:</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># Should be equal to 2*np.pi/(N-1)</span>
+<span class="n">V</span> <span class="o">=</span> <span class="mf">0.</span><span class="o">*</span><span class="n">x</span>
+<span class="n">Mdd</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">/</span><span class="p">(</span><span class="n">h</span><span class="o">*</span><span class="n">h</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mi">2</span><span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="p">),</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">H</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">hbar</span><span class="o">*</span><span class="n">hbar</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">m</span><span class="p">)</span><span class="o">*</span><span class="n">Mdd</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">V</span><span class="p">)</span> 
+
+<span class="n">E</span><span class="p">,</span><span class="n">psiT</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">H</span><span class="p">)</span> <span class="c1"># This computes the eigen values and eigenvectors</span>
+
+<span class="n">psi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">psiT</span><span class="p">)</span>   <span class="c1"># We take the transpose of psiT to the wavefunction vectors can accessed as psi[n]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>One additional thing to worry about is We want to verify that these resuls make sense, so we plot the wave functions and compute the norms. Note that the eigenvectors are normalized in such a way that <span class="math notranslate nohighlight">\(\sum_n \psi^2_n (x_i) = 1\)</span>.</p>
+<p>This does not take into account the step size that we used for discretizing the space and we want to plot the wave functions in such a way that they plot the same independent of our choice of step size, so to do this we need to divide the array of numbers by <span class="math notranslate nohighlight">\(\sqrt{\Delta x}\)</span> before plotting.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">psi</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">N</span><span class="o">-</span><span class="mi">10</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>   <span class="c1"># Flip the wavefunctions if it is negative at large x, so plots are more consistent.</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">-</span><span class="n">psi</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">h</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;$E_</span><span class="si">{}</span><span class="s2">$=</span><span class="si">{:&gt;8.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">E</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">psi</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">h</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;$E_</span><span class="si">{}</span><span class="s2">$=</span><span class="si">{:&gt;8.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">E</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Solutions to the Infinite Square Well&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="c1"># plt.savefig(&quot;Infinite_Square_Well_WaveFunctions.pdf&quot;) # we could also save these to .pdf if required</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Solving_the_Schrodinger_Equation_Numerically_8_0.png" src="_images/Solving_the_Schrodinger_Equation_Numerically_8_0.png" />
+</div>
+</div>
+<p>We now also want to check that the energy levels do indeed correspond to the known energy levels of this quantum model:</p>
+<div class="math notranslate nohighlight">
+\[E_n = \frac{n^2 \pi^2 \hbar^2}{2 m a^2}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;E[</span><span class="si">{}</span><span class="s2">] = </span><span class="si">{:9.4f}</span><span class="s2">, E_</span><span class="si">{}</span><span class="s2"> =</span><span class="si">{:9.4f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">E</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="o">*</span><span class="n">n</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">hbar</span><span class="o">*</span><span class="n">hbar</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">a</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>E[1] =    4.8964, E_1 =   4.9348
+E[2] =   19.5854, E_2 =  19.7392
+E[3] =   44.0664, E_3 =  44.4132
+E[4] =   78.3385, E_4 =  78.9568
+E[5] =  122.4004, E_5 = 123.3701
+E[6] =  176.2505, E_6 = 177.6529
+E[7] =  239.8868, E_7 = 241.8053
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can see that as N gets larger the results for the energy levels become more accurate. Values of N as large as <span class="math notranslate nohighlight">\(2^{10} = 1024\)</span> or <span class="math notranslate nohighlight">\(2^{15} = 20148\)</span> can still give results quickly on a desktop computer.</p>
+<p>One final test here shows the accuracy of our calculation in the <strong>orthonormality</strong> of the states:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:16.9e}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">psi</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">psi</span><span class="p">[</span><span class="n">i</span><span class="p">])),</span><span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 1.000000000e+00  3.330669074e-16  1.110223025e-16 -3.885780586e-16 -2.012279232e-16 
+ 3.330669074e-16  1.000000000e+00 -3.885780586e-16  7.494005416e-16  8.326672685e-17 
+ 1.110223025e-16 -3.885780586e-16  1.000000000e+00 -3.885780586e-16 -2.220446049e-16 
+-3.885780586e-16  7.494005416e-16 -3.885780586e-16  1.000000000e+00  4.440892099e-16 
+-2.012279232e-16  8.326672685e-17 -2.220446049e-16  4.440892099e-16  1.000000000e+00 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="finite-square-well-bound-state">
+<h2><span class="section-number">1.4. </span>Finite Square Well Bound State<a class="headerlink" href="#finite-square-well-bound-state" title="Permalink to this headline">¶</a></h2>
+<p>Now we can have a go at solving the Schrödinger equation using different potentials to calculate the bound states for a finite square well.</p>
+<p>There are only a few changes to the infinite square well solution:</p>
+<p>1. The potential is different, in that it has a small area which is not zero but some negative value, here <span class="math notranslate nohighlight">\(−𝑉_0\)</span></p>
+<p>2. For our calculation to be approximately correct, we need to make sure that our entire calculation space <span class="math notranslate nohighlight">\(−𝑎/2 \leq x \leq 𝑎/2\)</span> is much larger than the size of the well <span class="math notranslate nohighlight">\(−𝑏/2 \leq x \leq 𝑏/2\)</span> - this is to ensure that other behvaiour of the wave function is also captured. The factor 50 between <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> here is probably more than needed - but see if adjusting this significantly changes the results much!</p>
+<p>3. We also need a fairly large <span class="math notranslate nohighlight">\(𝑁\)</span>, the number of steps in our space, so that the resulting wave function is smooth in the area of the well - you may need to be somewhat patient when evaluating the well with these settings!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">scipy.linalg</span> <span class="k">as</span> <span class="nn">scl</span>
+<span class="n">hbar</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">m</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">3000</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mf">100.0</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mf">2.</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">a</span><span class="o">/</span><span class="mf">2.</span><span class="p">,</span><span class="n">a</span><span class="o">/</span><span class="mf">2.</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+
+<span class="c1"># We want to store step size, this is the reliable way:</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># Should be equal to 2*np.pi/(N-1)</span>
+<span class="n">V0</span> <span class="o">=</span> <span class="o">-</span><span class="mf">6.</span>
+<span class="n">V</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">b</span><span class="o">/</span><span class="mf">2.</span> <span class="ow">and</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;</span> <span class="n">b</span><span class="o">/</span><span class="mf">2.</span><span class="p">:</span>
+        <span class="n">V</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span> <span class="n">V0</span>
+
+<span class="n">Mdd</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">/</span><span class="p">(</span><span class="n">h</span><span class="o">*</span><span class="n">h</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mi">2</span><span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="p">),</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">H</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">hbar</span><span class="o">*</span><span class="n">hbar</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">m</span><span class="p">)</span><span class="o">*</span><span class="n">Mdd</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">V</span><span class="p">)</span> 
+
+<span class="n">E</span><span class="p">,</span><span class="n">psiT</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">H</span><span class="p">)</span> <span class="c1"># This computes the eigen values and eigenvectors</span>
+<span class="n">psi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">psiT</span><span class="p">)</span>   <span class="c1"># We take the transpose of psiT to the wavefunction vectors can accessed as psi[n]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">((</span><span class="o">-</span><span class="mi">5</span><span class="o">*</span><span class="n">b</span><span class="p">,</span><span class="mi">5</span><span class="o">*</span><span class="n">b</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">V</span><span class="o">/</span><span class="p">(</span><span class="o">-</span><span class="n">V0</span><span class="p">),</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;Gray&quot;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;V(x) scaled to 1&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">E</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">:</span>                 <span class="c1"># Only plot the bound states. The scattering states are not reliably computed.</span>
+        <span class="k">if</span> <span class="n">psi</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">N</span><span class="o">-</span><span class="mi">10</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>   <span class="c1"># Flip the wavefunctions if it is negative at large x, so plots are more consistent.</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">-</span><span class="n">psi</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">h</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;$E_</span><span class="si">{}</span><span class="s2">$=</span><span class="si">{:&gt;8.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">E</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">psi</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">h</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;$E_</span><span class="si">{}</span><span class="s2">$=</span><span class="si">{:&gt;8.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">E</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+            
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Solutions to the Finite Square Well&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="c1"># plt.savefig(&quot;Finite_Square_Well_WaveFunctions.pdf&quot;) # can save to .pdf if we wish</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Solving_the_Schrodinger_Equation_Numerically_14_0.png" src="_images/Solving_the_Schrodinger_Equation_Numerically_14_0.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Density Functional Theory</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="QM.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Quantum Mechanics</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Ali Mozaffari<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
