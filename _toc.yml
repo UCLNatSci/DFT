@@ -11,3 +11,10 @@ parts:
     - file: QM
     - file: Hydrogen
     - file: basics
+  - caption: Project Material
+    numbered: True
+    chapters:
+    - file: Equations
+    - file: Methods
+
+

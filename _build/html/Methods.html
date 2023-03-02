@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3. Solvable Quantum Models &#8212; Density Functional Theory</title>
+    <title>6. Computational Methods &#8212; Density Functional Theory</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -53,8 +53,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="4. Homework" href="basics.html" />
-    <link rel="prev" title="2. Quantum Mechanics" href="QM.html" />
+    <link rel="prev" title="5. Solvable Quantum Models" href="Equations.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -103,7 +102,7 @@
   Introductory Material
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Solving_the_Schrodinger_Equation_Numerically.html">
    1. Matrix Differential Equations
@@ -114,8 +113,8 @@
    2. Quantum Mechanics
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Hydrogen.html">
    3. Solvable Quantum Models
   </a>
  </li>
@@ -130,14 +129,14 @@
   Project Material
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Equations.html">
    5. Solvable Quantum Models
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Methods.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    6. Computational Methods
   </a>
  </li>
@@ -182,7 +181,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/Hydrogen.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/Methods.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -202,7 +201,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FHydrogen.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FMethods.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -230,32 +229,32 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#bohr-model">
-   3.1. Bohr Model
+   6.1. Bohr Model
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#infinite-square-well">
-   3.2. Infinite Square Well
+   6.2. Infinite Square Well
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#finite-square-well">
-   3.3. Finite Square Well
+   6.3. Finite Square Well
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#quantum-harmonic-oscillator">
-   3.4. Quantum Harmonic Oscillator
+   6.4. Quantum Harmonic Oscillator
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#revisiting-the-hydrogen-atom">
-   3.5. Revisiting the Hydrogen Atom
+   6.5. Revisiting the Hydrogen Atom
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#a-note-on-units">
-   3.6. A note on units
+   6.6. A note on units
   </a>
  </li>
 </ul>
@@ -268,7 +267,7 @@
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Solvable Quantum Models</h1>
+                <h1>Computational Methods</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -280,32 +279,32 @@
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#bohr-model">
-   3.1. Bohr Model
+   6.1. Bohr Model
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#infinite-square-well">
-   3.2. Infinite Square Well
+   6.2. Infinite Square Well
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#finite-square-well">
-   3.3. Finite Square Well
+   6.3. Finite Square Well
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#quantum-harmonic-oscillator">
-   3.4. Quantum Harmonic Oscillator
+   6.4. Quantum Harmonic Oscillator
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#revisiting-the-hydrogen-atom">
-   3.5. Revisiting the Hydrogen Atom
+   6.5. Revisiting the Hydrogen Atom
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#a-note-on-units">
-   3.6. A note on units
+   6.6. A note on units
   </a>
  </li>
 </ul>
@@ -317,15 +316,15 @@
             
               <div>
                 
-  <div class="section" id="solvable-quantum-models">
-<h1><span class="section-number">3. </span>Solvable Quantum Models<a class="headerlink" href="#solvable-quantum-models" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="computational-methods">
+<h1><span class="section-number">6. </span>Computational Methods<a class="headerlink" href="#computational-methods" title="Permalink to this headline">¶</a></h1>
 <p>Solving the Schrodinger equation for different quantum systems, we essentially add different choices of potential <span class="math notranslate nohighlight">\(V({\bf x},\,t)\)</span>.  In each case
 the Hamilonian operator:</p>
 <div class="math notranslate nohighlight">
 \[\hat{H} = \hat{T} + \hat{V} = -\frac{\hbar^2}{2m}\nabla^2 + V({\bf x},\,t)\]</div>
 <p>will vary depending on the choice of potential.</p>
 <div class="section" id="bohr-model">
-<h2><span class="section-number">3.1. </span>Bohr Model<a class="headerlink" href="#bohr-model" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1. </span>Bohr Model<a class="headerlink" href="#bohr-model" title="Permalink to this headline">¶</a></h2>
 <p>This one is a bit of a cheat, because solving it does not involve the Schroodinger equation, however it does allow us to address
 some conceptual ideas in quantum theory.  To do this properly, we need to consider the hydrogen atom properly, which we do in a later section.  The
 basic idea of the Bohr model, starting with Hydrogen, is to assume that electrons are in circular motion around the nucleus:</p>
@@ -377,12 +376,12 @@ the size of the atomic nuclear:</p>
 interactions within each energy level, something which is not typically present in atomic Hydrogen.</p>
 </div>
 <div class="section" id="infinite-square-well">
-<h2><span class="section-number">3.2. </span>Infinite Square Well<a class="headerlink" href="#infinite-square-well" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.2. </span>Infinite Square Well<a class="headerlink" href="#infinite-square-well" title="Permalink to this headline">¶</a></h2>
 <p>One of the simplest quantum systems we can investigate is the infinite square well, where the potential energy of the system traps the wave
-function within a well, as shown in <a class="reference internal" href="Methods.html#infinitesquarewell"><span class="std std-numref">Fig. 6.1</span></a>.</p>
+function within a well, as shown in <a class="reference internal" href="#infinitesquarewell"><span class="std std-numref">Fig. 6.1</span></a>.</p>
 <div class="figure align-default" id="infinitesquarewell">
 <img alt="_images/InfiniteSquareWell.png" src="_images/InfiniteSquareWell.png" />
-<p class="caption"><span class="caption-number">Fig. 3.1 </span><span class="caption-text">The infinite square well system</span><a class="headerlink" href="#infinitesquarewell" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 6.1 </span><span class="caption-text">The infinite square well system</span><a class="headerlink" href="#infinitesquarewell" title="Permalink to this image">¶</a></p>
 </div>
 <p>To solve the Schrodinger equation for this system:</p>
 <div class="math notranslate nohighlight">
@@ -414,10 +413,10 @@ f(L) &amp;=&amp; A\,\sin\left(\frac{\sqrt{2mE}}{\hbar}L\right) + B\,\cos\left(\f
 <p>and the expressions for the different wave function solutions are given by:</p>
 <div class="math notranslate nohighlight">
 \[\frac{\sqrt{2mE}}{\hbar} = \frac{n\pi}{L} \Longrightarrow f(x) = A\,\sin\left(\frac{n\,\pi\,x}{L}\right),\,n \in \mathbb{N}\]</div>
-<p>and we can plot these as shown in <a class="reference internal" href="Methods.html#infinitesquaresolns"><span class="std std-numref">Fig. 6.2</span></a></p>
+<p>and we can plot these as shown in <a class="reference internal" href="#infinitesquaresolns"><span class="std std-numref">Fig. 6.2</span></a></p>
 <div class="figure align-default" id="infinitesquaresolns">
 <img alt="_images/WaveFunctionSolns.png" src="_images/WaveFunctionSolns.png" />
-<p class="caption"><span class="caption-number">Fig. 3.2 </span><span class="caption-text">Wave functions for the infinite square well for the first three energy levels.</span><a class="headerlink" href="#infinitesquaresolns" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 6.2 </span><span class="caption-text">Wave functions for the infinite square well for the first three energy levels.</span><a class="headerlink" href="#infinitesquaresolns" title="Permalink to this image">¶</a></p>
 </div>
 <p>We see that this system is simply just the standing wave system with the string fixed at both ends!  Rearranging we see that
 <span class="math notranslate nohighlight">\(L = n \lambda/2, \,n \in \mathbb{N}\)</span>.  The temporal ODE is of the form:</p>
@@ -452,7 +451,7 @@ E_n &amp;=&amp; \frac{\hbar^2\,\pi^2\,n^2}{2m\,L^2},\,n \in \mathbb{N}\end{split
 \right.\end{split}\]</div>
 </div>
 <div class="section" id="finite-square-well">
-<h2><span class="section-number">3.3. </span>Finite Square Well<a class="headerlink" href="#finite-square-well" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.3. </span>Finite Square Well<a class="headerlink" href="#finite-square-well" title="Permalink to this headline">¶</a></h2>
 <p>If the system now has a finite square well, <span class="math notranslate nohighlight">\(V = U_0\)</span>, then <em>is</em> possible to have wavefunction solutions outside of
 <span class="math notranslate nohighlight">\(0 \leq x \leq L\)</span>, lets consider the Schrodinger equation again:</p>
 <div class="math notranslate nohighlight">
@@ -468,15 +467,15 @@ fix\frac{2m(E-U_0)}{\hbar^2} f = 0\]</div>
 <div class="math notranslate nohighlight">
 \[f(x) = A\exp\left(-\sqrt{\frac{2m|U_0-E|}{\hbar}}x\right)\]</div>
 <p>which are exponentially decaying solutions - this is quantum tunnelling!  We can see a pictorial representation of these
-finite well solutions alongside the infinite well solutions in <a class="reference internal" href="Methods.html#finitesquarewellsolns"><span class="std std-numref">Fig. 6.3</span></a>.  To find exact expressions
+finite well solutions alongside the infinite well solutions in <a class="reference internal" href="#finitesquarewellsolns"><span class="std std-numref">Fig. 6.3</span></a>.  To find exact expressions
 for the wave functions in the finite well case is not so easy however, as <span class="math notranslate nohighlight">\(\Psi(x,\,t)\)</span> is expected to be continuous.</p>
 <div class="figure align-default" id="finitesquarewellsolns">
 <img alt="_images/FiniteWellSolns1.png" src="_images/FiniteWellSolns1.png" />
-<p class="caption"><span class="caption-number">Fig. 3.3 </span><span class="caption-text">Infinite (<b>left pane</b>) and finite (<b>right pane</b>) square well wave functions.</span><a class="headerlink" href="#finitesquarewellsolns" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 6.3 </span><span class="caption-text">Infinite (<b>left pane</b>) and finite (<b>right pane</b>) square well wave functions.</span><a class="headerlink" href="#finitesquarewellsolns" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="quantum-harmonic-oscillator">
-<h2><span class="section-number">3.4. </span>Quantum Harmonic Oscillator<a class="headerlink" href="#quantum-harmonic-oscillator" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.4. </span>Quantum Harmonic Oscillator<a class="headerlink" href="#quantum-harmonic-oscillator" title="Permalink to this headline">¶</a></h2>
 <p>This system is the quantum analogue of the classical simple harmonic oscillator, the Hamiltonian is given by:</p>
 <div class="math notranslate nohighlight">
 \[\hat{H} = -\frac{\hbar^2}{2m}\nabla^2 + \frac{1}{2}m\omega^2\,x^2 \]</div>
@@ -492,7 +491,7 @@ e^{-{\frac {m\omega x^{2}}{2\hbar }}}\cdot H_{n}{\Bigl (}{\sqrt {\frac {m\omega 
 \[E_{n}=\hbar \omega {\bigl (}n+{\tfrac {1}{2}}{\bigr )}\]</div>
 </div>
 <div class="section" id="revisiting-the-hydrogen-atom">
-<h2><span class="section-number">3.5. </span>Revisiting the Hydrogen Atom<a class="headerlink" href="#revisiting-the-hydrogen-atom" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.5. </span>Revisiting the Hydrogen Atom<a class="headerlink" href="#revisiting-the-hydrogen-atom" title="Permalink to this headline">¶</a></h2>
 <p>We can put in a Coulomb law’s potential into the TISE as a model for the Hydrogen atom, this gives:</p>
 <div class="math notranslate nohighlight">
 \[\left(-\frac{\hbar^2}{2\mu}\nabla^2 - \frac{e^2}{4\pi\,\epsilon_0\,r} \right)\psi(r,\,\theta,\,\phi) = E \,\psi(r,\,\theta,\,\varphi)\]</div>
@@ -537,7 +536,7 @@ are known as quantum numbers and can take the following values:</p>
 \,\,\psi _{n\ell m}^{*}(r,\,\theta,\,\varphi)\,\,\psi_{n'\ell 'm'}(r,\theta ,\varphi )= \delta_{n\,n'}\delta_{\ell \,\ell '}\delta_{m\,m'}\]</div>
 </div>
 <div class="section" id="a-note-on-units">
-<h2><span class="section-number">3.6. </span>A note on units<a class="headerlink" href="#a-note-on-units" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.6. </span>A note on units<a class="headerlink" href="#a-note-on-units" title="Permalink to this headline">¶</a></h2>
 <p>It is usually easier to use <b>atomic units</b> when considering the computing systems, this saves memory storing excessively large or
 small values and only converting values at the end,  In Hartree atomic units, we set <span class="math notranslate nohighlight">\(\hbar = m_e = a_0 = e = 1\)</span> and energies measured in
 atomic units can be converted into electron volts using the Hartree energy:</p>
@@ -574,19 +573,12 @@ atomic units can be converted into electron volts using the Hartree energy:</p>
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="QM.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="Equations.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">2. </span>Quantum Mechanics</p>
+            <p class="prev-next-title"><span class="section-number">5. </span>Solvable Quantum Models</p>
         </div>
-    </a>
-    <a class='right-next' id="next-link" href="basics.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">4. </span>Homework</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             
