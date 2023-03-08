@@ -37,10 +37,18 @@ but rather as one large field that we can attempt to find - hence we will drop t
 $V_x^i \rightarrow V_{XC}$.  Another assumption is to think about only the **outer** electrons as the relevent ones, those in filled electrong shells (so called tight binding) do not really 
 play a big role in the energies of outer electrons.
 
+The nuclear potential is the easiest term to consider:
+
+```{math}
+
+```
+
 The electron charge density can be found as:
 ```{math}
-\rho({\bf r}) = e\,\sum_{i,\,occuped}^N |\phi({bf r})|^2
+\rho({\bf r}) = e\,\sum_{i,\,occuped}^N |\phi_i({\bf r})|^2 = \sum_n f_n|\phi(r)|^2
 ```
+where $f_n$ is the occupation number of the electrons in each orbital.  When we have an even number of electrons in the atom, each orbital is fully filled so $f_n = 2$, whereas for an odd number there
+will be a partially filled orbital somewhere, so $f_n = 1$.
 
 Our Hatree potential term can be found from electromagnetism (Gauss's law in potentials):
 
@@ -51,35 +59,50 @@ Our Hatree potential term can be found from electromagnetism (Gauss's law in pot
 This can be solve for $V_H$ using a greens function:
 
 ```{math}
-V_H(\bf r}) = \int \frac{e^2\,\rho({\bf r})}{|{\bf r - r'}|}\,r'\,\sin(\theta)\,\mathrm{d}r'\,\mathrm{\theta}\,\mathrm{d}\phi
+V_H = \iiint \frac{e^2\,\rho({\bf r})}{|{\bf r - r'}|}\,\mathrm{d}^3r' = e^2\int_0^{\infty}\frac{\rho({\bf r})}{|r - r'|}\,\mathrm{d}r'
 ```
 
-One prblem with solving this in one dimension is that it won't converge - there will be a some sort of divergence in each of the terms, so we modify this expression slightly:
+One problem with solving this in one dimension is that it won't converge - there will be a some sort of divergence in each of the terms, so we modify this expression slightly:
 ```{math}
-V_H = \int \frac{e^2\,\rho({\bf r})}{\sqrt{|r - r'}|^2 + \epsilon}}\,r'\,\sin(\theta)\,\mathrm{d}r'\,\mathrm{theta}\,\mathrm{d}\phi
+V_H  = e^2\int_0^{\infty}\frac{\rho({\bf r})}{\sqrt{(r - r')^2+\epsilon}}\,\mathrm{d}r'
 ```
-and add in a term $\epsilon \ll 1$.  
+by adding in a term $\epsilon < 1$.  This term is just here for *numerical stability*, it aboids infinities where we least want them.
 
-The exchange term looks like:
+In atomic units, this looks like:
 ```{math}
-V_{XC}(\rho({\bf r}) = -\left(\frac{3\,\rho}{\pi}\right)^{1/3}
+V_H  = \int_0^{\infty}\frac{\rho({\bf r})}{\sqrt{(r - r')^2+\epsilon}}
 ```
-this is after we applied the local density approximation, before this step it looks VERY complicated.
+
+
+After we applied the local density approximation, the exchange term actually looks like:
+```{math}
+V_{XC} = -\left(\frac{3\,\rho}{\pi}\right)^{1/3}
+```
+this is nice and simple, before the approximation this expression would look VERY complicated.
 
 
 This leads us to the Kohn-Sham (KS) equations:
 
 ```{math}
-\left(-\frac{\hbar^2}{2m} \nabla^2 + V_N({\bf r) + V_H({\bf r}) + V_{xc}(\rho{\bf r})\right)\,\phi_i({\bf r}) = \mathcal{E}_i\,\phi_i({\bf r})
+\left(-\frac{\hbar^2}{2m} \nabla^2 + V_N + V_H + V_{xc}\right)\,\phi_i = \mathcal{E}_i\,\phi_i
 ```
 
 We aim to solve this system iteratively:
 
-```{figure} ../figures/DFTFlowChart.png
+```{figure} ./figures/DFTFlowChart.png
 ---
 name: DFTFlow
 ---
 A schematic for following the **self-consistent** field approach to solve the KS equations.
 ```
 
-We all this the self-consistent field approach to solve the KS equations, 
+We call this the self-consistent field approach to solve the KS equations, where we iteratively solve this system to find energies and wavefunctions.
+
+If we use the KS to calculate the system initially, then reformulate the Hamiltonian operator here using the 
+
+One we have solutions from the system, we can also calculate the different parts of the energy contribution:
+
+```{math}
+E_H &= \frac{1}{2}\iint \frac{\rho(r)\,\rho(r')}{|r-r'|}\,\mathrm{d}r\,\mathrm{d}r' \\
+E_{XC} &= -\frac{3^{4/3}}{\pi^{1/3}}\,\int (\rho(r))^{4/3}\,\mathrm{d}r
+```

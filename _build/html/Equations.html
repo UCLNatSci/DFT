@@ -270,32 +270,45 @@ we need to simplify.</p>
 but rather as one large field that we can attempt to find - hence we will drop the individualk orbital exchange terms for one large overall exchange term
 <span class="math notranslate nohighlight">\(V_x^i \rightarrow V_{XC}\)</span>.  Another assumption is to think about only the <strong>outer</strong> electrons as the relevent ones, those in filled electrong shells (so called tight binding) do not really
 play a big role in the energies of outer electrons.</p>
+<p>The nuclear potential is the easiest term to consider:</p>
+<div class="math notranslate nohighlight">
+\[\]</div>
 <p>The electron charge density can be found as:</p>
 <div class="math notranslate nohighlight">
-\[\rho({\bf r}) = e\,\sum_{i,\,occuped}^N |\phi({bf r})|^2\]</div>
+\[\rho({\bf r}) = e\,\sum_{i,\,occuped}^N |\phi_i({\bf r})|^2 = \sum_n f_n|\phi(r)|^2\]</div>
+<p>where <span class="math notranslate nohighlight">\(f_n\)</span> is the occupation number of the electrons in each orbital.  When we have an even number of electrons in the atom, each orbital is fully filled so <span class="math notranslate nohighlight">\(f_n = 2\)</span>, whereas for an odd number there
+will be a partially filled orbital somewhere, so <span class="math notranslate nohighlight">\(f_n = 1\)</span>.</p>
 <p>Our Hatree potential term can be found from electromagnetism (Gauss’s law in potentials):</p>
 <div class="math notranslate nohighlight">
 \[\nabla^2 V_H({\bf r}) = -4\pi e\,\rho({\bf r})\]</div>
 <p>This can be solve for <span class="math notranslate nohighlight">\(V_H\)</span> using a greens function:</p>
 <div class="math notranslate nohighlight">
-\[V_H(\bf r}) = \int \frac{e^2\,\rho({\bf r})}{|{\bf r - r'}|}\,r'\,\sin(\theta)\,\mathrm{d}r'\,\mathrm{\theta}\,\mathrm{d}\phi\]</div>
-<p>One prblem with solving this in one dimension is that it won’t converge - there will be a some sort of divergence in each of the terms, so we modify this expression slightly:</p>
+\[V_H = \iiint \frac{e^2\,\rho({\bf r})}{|{\bf r - r'}|}\,\mathrm{d}^3r' = e^2\int_0^{\infty}\frac{\rho({\bf r})}{|r - r'|}\,\mathrm{d}r'\]</div>
+<p>One problem with solving this in one dimension is that it won’t converge - there will be a some sort of divergence in each of the terms, so we modify this expression slightly:</p>
 <div class="math notranslate nohighlight">
-\[V_H = \int \frac{e^2\,\rho({\bf r})}{\sqrt{|r - r'}|^2 + \epsilon}}\,r'\,\sin(\theta)\,\mathrm{d}r'\,\mathrm{theta}\,\mathrm{d}\phi\]</div>
-<p>and add in a term <span class="math notranslate nohighlight">\(\epsilon \ll 1\)</span>.</p>
-<p>The exchange term looks like:</p>
+\[V_H  = e^2\int_0^{\infty}\frac{\rho({\bf r})}{\sqrt{(r - r')^2+\epsilon}}\,\mathrm{d}r'\]</div>
+<p>by adding in a term <span class="math notranslate nohighlight">\(\epsilon &lt; 1\)</span>.  This term is just here for <em>numerical stability</em>, it aboids infinities where we least want them.</p>
+<p>In atomic units, this looks like:</p>
 <div class="math notranslate nohighlight">
-\[V_{XC}(\rho({\bf r}) = -\left(\frac{3\,\rho}{\pi}\right)^{1/3}\]</div>
-<p>this is after we applied the local density approximation, before this step it looks VERY complicated.</p>
+\[V_H  = \int_0^{\infty}\frac{\rho({\bf r})}{\sqrt{(r - r')^2+\epsilon}}\]</div>
+<p>After we applied the local density approximation, the exchange term actually looks like:</p>
+<div class="math notranslate nohighlight">
+\[V_{XC} = -\left(\frac{3\,\rho}{\pi}\right)^{1/3}\]</div>
+<p>this is nice and simple, before the approximation this expression would look VERY complicated.</p>
 <p>This leads us to the Kohn-Sham (KS) equations:</p>
 <div class="math notranslate nohighlight">
-\[\left(-\frac{\hbar^2}{2m} \nabla^2 + V_N({\bf r) + V_H({\bf r}) + V_{xc}(\rho{\bf r})\right)\,\phi_i({\bf r}) = \mathcal{E}_i\,\phi_i({\bf r})\]</div>
+\[\left(-\frac{\hbar^2}{2m} \nabla^2 + V_N + V_H + V_{xc}\right)\,\phi_i = \mathcal{E}_i\,\phi_i\]</div>
 <p>We aim to solve this system iteratively:</p>
 <div class="figure align-default" id="dftflow">
-<img alt="../figures/DFTFlowChart.png" src="../figures/DFTFlowChart.png" />
+<img alt="_images/DFTFlowChart.png" src="_images/DFTFlowChart.png" />
 <p class="caption"><span class="caption-number">Fig. 5.1 </span><span class="caption-text">A schematic for following the <strong>self-consistent</strong> field approach to solve the KS equations.</span><a class="headerlink" href="#dftflow" title="Permalink to this image">¶</a></p>
 </div>
-<p>We all this the self-consistent field approach to solve the KS equations,</p>
+<p>We call this the self-consistent field approach to solve the KS equations, where we iteratively solve this system to find energies and wavefunctions.</p>
+<p>If we use the KS to calculate the system initially, then reformulate the Hamiltonian operator here using the</p>
+<p>One we have solutions from the system, we can also calculate the different parts of the energy contribution:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}E_H &amp;= \frac{1}{2}\iint \frac{\rho(r)\,\rho(r')}{|r-r'|}\,\mathrm{d}r\,\mathrm{d}r' \\
+E_{XC} &amp;= -\frac{3^{4/3}}{\pi^{1/3}}\,\int (\rho(r))^{4/3}\,\mathrm{d}r\end{split}\]</div>
 </div>
 
     <script type="text/x-thebe-config">
